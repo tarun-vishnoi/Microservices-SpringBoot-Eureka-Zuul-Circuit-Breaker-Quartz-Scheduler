@@ -1,3 +1,0 @@
-spring:
-  application:
-    name: ms_zuul     cloud:    config:      uri: http://localhost:8763/

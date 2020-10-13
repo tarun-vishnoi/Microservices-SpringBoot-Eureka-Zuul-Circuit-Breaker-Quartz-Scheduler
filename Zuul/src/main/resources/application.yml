@@ -1,34 +1,0 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    
-server:
-  port: 8762
-  
-zuul:  prefix: /gateway
-  routes:    ms_result: 
-      path: /ms-result/**
-      service-id: ms_result
-    ms_query:
-      path: /ms-query/**
-      service-id: ms_query
-      
-ribbon:
-  ConnectTimeout: 1000
-  ReadTimeout: 50000
-  eureka:    enabled: true
-
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 120000
-
-  
